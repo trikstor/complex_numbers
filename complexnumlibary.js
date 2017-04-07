@@ -59,3 +59,27 @@ function cn_print(num, id, values){
     $.plot($("#"+id), [d1]);
   });
 }
+
+// Модуль комплексного числа, если n=2.
+function cn_module(num, n, values){
+  var mod = math.sqrt(values[num][0] + values[num][1], n);
+  return mod;
+}
+
+// Угол при представлении комплексного числа в тригонометрической форме.
+function cn_angle(num, values){
+  var angle = math.tg(values[num][0] / values[num][1]);
+  return angle;
+}
+
+// Корень из комплексного числа, задается результирующий массив - nvalues, степень корня - i.
+function cn_sqrt(num, i, values, nvalues){
+  for(int k = 0; k < i; k++){
+    var val1 = cp_module(num, i, module)*(math.cos(cn_angle(num, values) + 2*i*k)/i));
+    var val2 = cp_module(num, i, module)*(math.sin(cn_angle(num, values) + 2*i*k)/i));
+    
+    nvalues[k][0] = val1;
+    nvalues[k][1] = val2;
+  }
+  return nvalues;
+}
