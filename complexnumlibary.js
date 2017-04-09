@@ -12,6 +12,14 @@ function cn_start(quantity){
    return values;
 }
 
+function cp_plusmass(num, values){
+  if(num == values.length){
+    values[values.length] = 0;
+  }
+  
+  return values;
+}
+
 // Создание комплексного числа с индефикатором num и действительной частью re и мнимой частью im.
 function cn_new(num, re, im, values){
   values[num][0] = re;
